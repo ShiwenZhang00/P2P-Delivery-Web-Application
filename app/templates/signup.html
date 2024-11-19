@@ -1,0 +1,98 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row mb-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2 class="fw-bold">Register</h2>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 col-xl-4">
+                <div>
+                    <form class="p-3 p-xl-4" method="post" action="/signupSubmit">
+                        <div class="mb-3">
+                            <label for="exampleEamil" class="form-label">Eamil</label>
+                            <input class="form-control" type="email" id="inPutemail" name="email" value="{{ email }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="examplelastname" class="form-label">Last Name</label>
+                            <input class="form-control" type="text" id="inPutlastname" name="lname" value="{{ lname }}" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="examplefirstname" class="form-label">First Name</label>
+                            <input class="form-control" type="text" id="inPutFirstname" name="fname" value="{{ fname }}" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="examplegender" class="form-label">Gender</label>
+                            <select name="gender" class="form-select" >
+                                <option value="" {% if gender=="" %} selected {% endif %}>Please select your gender!!!</option>
+                                <option value="Male" {% if gender=="Male" %} selected {% endif %}>Male</option>
+                                <option value="Female" {% if gender=="Female" %} selected {% endif %}>Female</option>
+                                <option value="Other" {% if gender=="Other" %} selected {% endif %}>Other</option>
+                                <option value="PreferNotToSay" {% if gender=="PreferNotToSay" %} selected {% endif %}>Prefer Not To Say</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="examplebirth" class="form-lable">Date of birth</label>
+                            <input class="form-control" type="date" id="birthday" name="birth" value="{{ birth }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="examplePhone" class="form-label">Phone Number</label>
+                            <input class="form-control" type="number" id="inPutphone" name="phone" value="{{ phone }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="examplepword1" class="form-label">Password</label>
+                            <input class="form-control" type="password" id="inPutpword1" name="pword1" value="{{ pword1 }}">
+                            <input type="checkbox" id="showPassword4"> Show Password
+                            <script>
+                                document.getElementById("showPassword4").addEventListener("change", function() {
+                                    var passwordInput = document.getElementById("inPutpword1");
+                                    if (this.checked) {
+                                        passwordInput.type = "text";
+                                    } else {
+                                        passwordInput.type = "password";
+                                    }
+                                });
+                            </script>
+                        </div>
+                        <div class="mb-3">
+                            <label for="examplepword2" class="form-label">Password agin!!!</label>
+                            <input class="form-control" type="password" id="inPutpword2" name="pword2" value="{{ pword2 }}">
+                            <input type="checkbox" id="showPassword5"> Show Password
+                            <script>
+                                document.getElementById("showPassword5").addEventListener("change", function() {
+                                    var passwordInput = document.getElementById("inPutpword2");
+                                    if (this.checked) {
+                                        passwordInput.type = "text";
+                                    } else {
+                                        passwordInput.type = "password";
+                                    }
+                                });
+                            </script>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary shadow d-block w-100" type="submit">Sign up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% endwith %}
+
+{% endblock content %}

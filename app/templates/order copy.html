@@ -1,0 +1,52 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<section class="py-5">
+    <div class="row mb-5">
+        <div class="col-md-8 col-xl-6 text-center mx-auto">
+            <h2 class="fw-bold">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Merchant Highlights: <strong>One-Stop Ordering for a Quality Lifestyle</strong></h2>
+            <p class="text-muted">Featured Merchants Display &amp; Quick Price Overview, Easily Craft Your Ideal Order</p>
+        </div>
+    </div>
+    <div class="container py-5">
+        <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
+            <div class="col mb-4">
+                <div><a href="#"><img class="rounded img-fluid shadow w-100 fit-cover" src="/static/assets/img/brands/BurgerKing.svg" style="height: 250px;"></a>
+                    <div class="py-4"><span class="badge bg-primary mb-2">Hot</span>
+                        <h4 class="fw-bold">BURGER KING</h4>
+                        <p class="text-muted">Each bite is a classic-meets-innovation combo! Burger King, just outside SWUFE's west gate, serves up authentic burgers that will tantalize your taste buds. Try it&nbsp;now!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div><a href="#"><img class="rounded img-fluid shadow w-100 fit-cover" src="/static/assets/img/brands/kfc.jpg" style="height: 250px;" width="324" height="250"></a>
+                    <div class="py-4"><span class="badge bg-primary mb-2">Hot</span>
+                        <h4 class="fw-bold">KFC</h4>
+                        <p class="text-muted">Fast, fresh, and Finger-Lickin' Good! Order KFC on our P2P delivery service. Get it delivered&nbsp;and savor a delicious burger combo.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div><a href="#"><img class="rounded img-fluid shadow w-100 fit-cover" src="/static/assets/img/brands/Luckin.svg" style="height: 250px;"></a>
+                    <div class="py-4"><span class="badge bg-primary mb-2">Hot</span>
+                        <h4 class="fw-bold">LUCKIN COFFEE</h4>
+                        <p class="text-muted">Feeling sleepy during afternoon classes? Order a cup of coffee from the Airplane P2P delivery platform! Luckin Coffee uses premium coffee beans to provide you with exquisite freshly ground coffee.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col mb-4">
+                <div><a href="#"><img class="rounded img-fluid shadow w-100 fit-cover" src="/static/assets/img/brands/dq.svg" style="height: 250px;"></a>
+                    <div class="py-4"><span class="badge bg-primary mb-2">Hot</span>
+                        <h4 class="fw-bold">DAIRY QUEEN</h4>
+                        <p class="text-muted">For a sweet escape, Dairy Queen (DQ) delivers! Indulge in our creamy soft serve, dipped cones, and Blizzards. Order from our P2P delivery platform for a treat anytime!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div align="center"><div class="py-4"><button class="btn btn-primary" type="button"><a href="/create_order">Create an order</a></button></div></div>
+    </div>
+</section>
+
+
+{% endblock content %}

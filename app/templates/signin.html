@@ -1,0 +1,58 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row mb-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2 class="fw-bold">Log In</h2>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 col-xl-4">
+                <div>
+                    <form class="p-3 p-xl-4" method="post" action="/signinSubmit">
+                        <div class="mb-3">
+                            <label for="exampleemail" class="form-label">Email</label>
+                            <input class="form-control" type="email" id="inPutemail" name="inemail" value="{{ inemail }}" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="examplepword" class="form-label">Password</label>
+                            <input class="form-control" type="password" id="inPutpword3" name="inpword" value="{{ inpword }}">
+                            <input type="checkbox" id="showPassword3"> Show Password
+                            <script>
+                                document.getElementById("showPassword3").addEventListener("change", function() {
+                                    var passwordInput = document.getElementById("inPutpword3");
+                                    if (this.checked) {
+                                        passwordInput.type = "text";
+                                    } else {
+                                        passwordInput.type = "password";
+                                    }
+                                });
+                            </script>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary shadow d-block w-100" type="submit">Log In</button>
+                            <br><br>
+                            <a class="btn btn-primary shadow" role="button" href="signup">You have no Account??? Sign up, right now!!!</a>                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% endwith %}
+
+{% endblock content %}

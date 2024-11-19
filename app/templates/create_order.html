@@ -1,0 +1,91 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<section class="py-5" style="margin-top: -97px;">
+    <div class="container py-5">
+        <div class="row mb-4 mb-lg-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <p class="fw-bold text-success mb-2">AIRPLANE</p>
+                <h3 class="fw-bold">Order Service</h3>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 mx-auto" style="max-width: 900px;">
+            <div class="col mb-5"><img class="rounded img-fluid shadow" src="/static/assets/img/products/airplane.jpg"></div>
+            <div class="col d-md-flex align-items-md-end align-items-lg-center mb-5">
+                <div>
+                    <h5 class="fw-bold">Instructions for use</h5>
+                    <p class="text-muted mb-4">Orders can be cancelled within ten minutes only, for more usage rules click the button below!</p><button class="btn btn-primary shadow" type="button">Learn more</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<section class="py-5">
+    <div class="container py-5">
+        <div class="row mb-5">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2 class="fw-bold">Create order</h2>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 col-xl-4">
+                <div>
+
+                    <form class="p-3 p-xl-4" method="post" action="/orderSubmit">
+                        <!-- <div class="mb-3">
+                            <label for="exampleEamil" class="form-label">Eamil</label>
+                            <input class="form-control" type="email" id="inPutemail" name="email" value="{{ email }}">
+                        </div> -->
+                        <div class="mb-3">
+                            <label for="pnumber" class="form-label">Phone number</label>
+                            <input class="form-control" type="text" id="pnumber" name="pnumber" {%if pnumber%}value="{{pnumber}}"{%endif%}>
+                        </div>
+                        <div class="mb-3">
+                            <label for="examplefirstname" class="form-label">Address</label>
+                            <input class="form-control" type="text" id="add" name="add" {%if add%}value="{{add}}"{%endif%}>
+                        </div>
+                        <div class="mb-3">
+                            <label for="merchant" class="form-label">Merchant</label>
+                            <select name="merchant" id="merchant" class="form-select" >
+                                {% for item in merchant_list %}
+                                <option value="{{item.id}}">{{item.name}}</option>
+                                {%endfor%}
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fee" class="form-lable">Fee</label>
+                            <input class="form-control" type="number" id="fee" name="fee" {%if fee%}value="{{fee}}"{%endif%}>
+                        </div>
+                        <div class="mb-3">
+                            <label for="time" class="form-lable">DeliveryTime</label>
+                            <input class="form-control" type="datetime-local" id="time" name="time" {%if adtimed%}value="{{time}}"{%endif%}>
+                        </div>
+                        <div class="mb-3">
+                            <label for="desc" class="form-lable">Description</label>
+                            <input class="form-control" type="text" id="desc" name="desc" {%if desc%}value="{{desc}}"{%endif%}>
+                        </div>
+                        
+                        <div>
+                            <button class="btn btn-primary shadow d-block w-100" type="submit">Order</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+  <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% endwith %}
+
+{% endblock content %}
